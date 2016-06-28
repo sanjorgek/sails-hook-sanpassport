@@ -21,3 +21,8 @@ module.exports = {
 ~~~
 # Info
 See [sanpassport](https://www.npmjs.com/package/sanpassport) settings
+
+[npm-image]: https://img.shields.io/npm/v/sails-hook-sanpassport.svg
+[npm-url]: https://npmjs.org/package/sails-hook-sanpassport
+[downloads-image]: https://img.shields.io/npm/dm/sails-hook-sanpassport.svg
+[downloads-url]: https://npmjs.org/package/sails-hook-sanpassport
