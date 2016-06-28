@@ -1,0 +1,38 @@
+{
+  "name": "sails-hook-sanpassport",
+  "version": "1.0.0",
+  "description": "Passport hook for Sails",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanjorgek/sails-hook-sanpassport.git"
+  },
+  "keywords": [
+    "sails",
+    "hook",
+    "passport",
+    "local"
+  ],
+  "author": "SanJorgeK",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/sanjorgek/sails-hook-sanpassport/issues"
+  },
+  "homepage": "https://github.com/sanjorgek/sails-hook-sanpassport",
+  "sails": {
+    "isHook": true,
+    "hookname": "mongoindexes"
+  },
+  "devDependencies": {
+    "sails": "x",
+    "mocha": "x"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "passport": "^0.3.2",
+    "sanpassport": "^1.4.0"
+  }
+}
