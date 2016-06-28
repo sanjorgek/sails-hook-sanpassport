@@ -10,6 +10,14 @@
 Install
 	
 	$ npm install sails-hook-sanpassport
-	
 
+Create `config/passport.js`
+~~~js
+module.exports = {
+	model: "user",
+	//optional
+	redirecCB: null
+}
+~~~
 # Info
+See [sanpassport](https://www.npmjs.com/package/sanpassport) settings
