@@ -33,6 +33,6 @@
   "dependencies": {
     "debug": "^2.2.0",
     "passport": "^0.3.2",
-    "sanpassport": "git://github.com/sanjorgek/sanpassport.git"
+    "sanpassport": "^1.5.0"
   }
 }
