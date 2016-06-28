@@ -10,16 +10,19 @@ module.exports = function indexes(sails) {
     configure: function () {
 			if(!sails.config.passport || !sails.config.passport.model){
 				sails.config.passport = {
-					model: "User"
+					model: "user"
 				}
 			}
 		},
 		//Start hook
     initialize: function (cb) {
-			sails.sanpassport = sanpassport(
-				passport, 
-				sails.models[sails.config.passport.model], sails.config.passport.redirectCB);
-			cb();
+			var eventsToWaitFor = ['hook:orm:loaded'];
+			sails.after(eventsToWaitFor, function() {
+				sails.sanpassport = sanpassport(
+					passport, 
+					sails.models[sails.config.passport.model], sails.config.passport.redirectCB);
+				cb();
+			});
 		},
 		//Routes
     routes: {}
