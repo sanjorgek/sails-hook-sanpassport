@@ -24,7 +24,7 @@
   "homepage": "https://github.com/sanjorgek/sails-hook-sanpassport",
   "sails": {
     "isHook": true,
-    "hookname": "mongoindexes"
+    "hookname": "sanpassport"
   },
   "devDependencies": {
     "sails": "x",
