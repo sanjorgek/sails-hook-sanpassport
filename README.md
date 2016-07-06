@@ -16,7 +16,9 @@ Create `config/passport.js`
 module.exports = {
 	model: "user",
 	//optional
-	redirecCB: null
+	redirecCB: null,
+	//optional
+	strategyFun: null
 }
 ~~~
 # Info
