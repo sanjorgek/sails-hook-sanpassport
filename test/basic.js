@@ -1,4 +1,5 @@
 var Sails = require('sails').Sails;
+var request = require('supertest');
 
 describe('Basic tests ::', function() {
 	// Var to hold a running sails app instance
@@ -34,5 +35,14 @@ describe('Basic tests ::', function() {
 	// Test that Sails can lift with the hook in place
 	it ('sails does not crash', function() {
 		return true;
+	});
+	
+	it("dont die", function (done) {
+		request(sails.hooks.http.app).get('/')
+		.expect(404)
+		.end(function (err, res) {
+			if(err) done(err);
+			else done();
+		});
 	});
 });

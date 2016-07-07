@@ -28,10 +28,12 @@
   },
   "devDependencies": {
     "sails": "x",
-    "mocha": "x"
+    "mocha": "x",
+    "supertest": "^1.2.0"
   },
   "dependencies": {
     "debug": "^2.2.0",
-    "sanpassport": "git://github.com/sanjorgek/sanpassport.git"
+    "passport": "^0.3.2",
+    "sanpassport": "1.7.0"
   }
 }

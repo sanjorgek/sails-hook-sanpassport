@@ -1,4 +1,5 @@
 var debug = require("debug")("sails:hook:sanpassport");
+var passport = require("passport");
 var sanpassport = require("sanpassport");
 
 module.exports = function indexes(sails) {
@@ -18,9 +19,10 @@ module.exports = function indexes(sails) {
 			var eventsToWaitFor = ['hook:orm:loaded', 'hook:http:loaded'];
 			sails.after(eventsToWaitFor, function() {
 				sails.sanpassport = sanpassport(
+					passport,
 					sails.models[sails.config.passport.model], sails.config.passport.redirectCB,
 					sails.config.passport.strategyFun);
-				sails.hooks.http.app.stack = sessionPAP(sails.hooks.http.app.stack, sails.sanpassport);
+				sails.hooks.http.app.stack = sessionPAP(sails.hooks.http.app.stack, passport);
 				cb();
 			});
 		},
@@ -36,8 +38,8 @@ function sessionPAP(stack, sanpassport) {
 	while(stack.length && stack.length>0 && bandera){
 		item = stack.pop()
 		if(!item.handle.name){
-			stackR.push({route: item.route, handle: sanpassport.session});
-			stackR.push({route: item.route, handle: sanpassport.initialize});
+			stackR.push({route: item.route, handle: passport.session()});
+			stackR.push({route: item.route, handle: passport.initialize()});
 		}
 		stackR.push(item);
 	}
