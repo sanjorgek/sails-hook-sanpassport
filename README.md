@@ -13,7 +13,7 @@ Install
 
 Create `config/passport.js`
 ~~~js
-module.exports = {
+module.exports.passport = {
 	model: "user",
 	//optional
 	redirecCB: null,
