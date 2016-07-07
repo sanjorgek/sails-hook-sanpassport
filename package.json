@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "debug": "^2.2.0",
-    "passport": "^0.3.2",
-    "sanpassport": "1.7.0"
+    "sanpassport": "2.0.0"
   }
 }
