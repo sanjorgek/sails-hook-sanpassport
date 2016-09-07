@@ -33,16 +33,14 @@ function sessionPAP(stack, sanpassport) {
 	var stackR = [];
 	var item;
 	var bandera = true;
-	while(stack.length && stack.length>0 && bandera){
-		item = stack.pop()
-		if(!item.handle.name){
-			stackR.push({route: item.route, handle: sanpassport.session});
-			stackR.push({route: item.route, handle: sanpassport.initialize});
-		}
+  var stackLength = (stack.length)? stack.length: 0;
+	for (var index = 0; index < stackLength; index++) {
+		item = stack[index];
 		stackR.push(item);
+		if(!item.handle.name){
+			stackR.push({route: item.route, handle: sanpassport.initialize});      
+			stackR.push({route: item.route, handle: sanpassport.session});
+		}
 	}
-	while(stackR.length>0){
-		stack.push(stackR.pop());
-	}
-	return stack;
+	return stackR;
 }
