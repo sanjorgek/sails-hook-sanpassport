@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-sanpassport",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Passport hook for Sails",
   "main": "index.js",
   "scripts": {
