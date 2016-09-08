@@ -15,12 +15,18 @@ module.exports = function indexes(sails) {
 		},
 		//Start hook
     initialize: function (cb) {
-			var eventsToWaitFor = ['hook:orm:loaded', 'hook:http:loaded'];
-			sails.after(eventsToWaitFor, function() {
+			var eventsToWaitFor = ['hook:orm:loaded', 'hook:http:loaded', 'hook:policies:loaded'];
+			sails.after(eventsToWaitFor, function() {		
 				sails.sanpassport = sanpassport(
 					sails.models[sails.config.passport.model], sails.config.passport.redirectCB,
 					sails.config.passport.strategyFun);
 				sails.hooks.http.app.stack = sessionPAP(sails.hooks.http.app.stack, sails.sanpassport);
+				sails.hooks.policies.middleware.sessionauth = sails.sanpassport.ensureAuthenticated;
+				sails.hooks.policies.middleware.ensureadmin = sails.sanpassport.ensureAdmin;
+				sails.hooks.policies.middleware.ensureadmin.identity = "ensureadmin";
+				sails.hooks.policies.middleware.ensureadmin.globalId = "ensureAdmin";
+				sails.hooks.policies.middleware.ensureadmin.sails = sails;
+
 				cb();
 			});
 		},
