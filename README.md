@@ -5,6 +5,7 @@
   [![NPM Downloads][downloads-image]][downloads-url]
 
 # About
+Before use this hook you need to read [sanpassport](https://www.npmjs.com/package/sanpassport) settings.
 
 # Use
 Install
@@ -18,11 +19,11 @@ module.exports.passport = {
 	//optional
 	redirecCB: null,
 	//optional
-	strategyFun: null
+	strategyFun: null,
+  //optional
+  ensureAuthenticated: null
 }
 ~~~
-# Info
-See [sanpassport](https://www.npmjs.com/package/sanpassport) settings
 
 [npm-image]: https://img.shields.io/npm/v/sails-hook-sanpassport.svg
 [npm-url]: https://npmjs.org/package/sails-hook-sanpassport
