@@ -19,13 +19,83 @@ Create `config/passport.js`
 module.exports.passport = {
 	model: "user",
 	//optional
-	redirecCB: null,
-	//optional
 	strategyFun: null,
   //optional
   ensureAuthenticated: null
 }
 ~~~
+
+Model settings
+~~~js
+module.exports = {
+  attributes: {
+    username: {
+      type: 'string',
+      unique : true,
+      required : true
+    },
+    password: {
+      type: 'string',
+      minLength: 8,
+      required : true
+    },
+    comparePassword: function(candidatePassword, cb) {
+      cb(null,true);
+    }
+  },
+};
+~~~
+
+AuthController options
+~~~js
+module.exports = {
+  login: function(req, res){
+    //
+  },
+  logout: function(req, res){
+    //
+  },
+  signup: function(req, res){
+    var jsonBody = req.body;
+    sanpassport.createUser(jsonBody, function(err, user){
+      if(err || !user){
+        res.send(404);
+      }else{
+        res.send(200);
+      }
+    });
+  }
+}
+~~~
+
+Policies settings
+~~~js
+module.exports.policies = {
+  UserController: {
+    '*': ['sessionAuth']
+  },
+  UserController: {
+    login: ['login'],
+    login: ['logout']
+  }
+};
+~~~
+
+Routes options
+~~~js
+module.exports.routes = {
+  '/': [{policy: "sessionAuth"},{
+    view: 'homepage',
+    locals: {
+      layout: 'layout'
+    }
+  }],
+  'post /login': "AuthController.login",
+  'post /logout': "AuthController.logout",
+  'post /signup': "AuthController.signup"
+};
+~~~
+
 
 [npm-image]: https://img.shields.io/npm/v/sails-hook-sanpassport.svg
 [npm-url]: https://npmjs.org/package/sails-hook-sanpassport

@@ -29,11 +29,21 @@ module.exports = function indexes(sails) {
         sails.hooks.policies.middleware.sessionauth.identity = "sessionauth";
         sails.hooks.policies.middleware.sessionauth.globalId = "sessionAuth";
         sails.hooks.policies.middleware.sessionauth.sails = sails;
-        
-        sails.hooks.policies.middleware.ensureadmin = sails.sanpassport.ensureAdmin;
-        sails.hooks.policies.middleware.ensureadmin.identity = "ensureadmin";
-        sails.hooks.policies.middleware.ensureadmin.globalId = "ensureAdmin";
-        sails.hooks.policies.middleware.ensureadmin.sails = sails;
+
+        sails.hooks.policies.middleware.sessionauth = sails.sanpassport.ensureAuthenticated;
+        sails.hooks.policies.middleware.sessionauth.identity = "sessionauth";
+        sails.hooks.policies.middleware.sessionauth.globalId = "sessionAuth";
+        sails.hooks.policies.middleware.sessionauth.sails = sails;
+
+        sails.hooks.policies.middleware.login = sails.sanpassport.login;
+        sails.hooks.policies.middleware.login.identity = "login";
+        sails.hooks.policies.middleware.login.globalId = "login";
+        sails.hooks.policies.middleware.login.sails = sails;
+
+        sails.hooks.policies.middleware.logout = sails.sanpassport.logout;
+        sails.hooks.policies.middleware.logout.identity = "logout";
+        sails.hooks.policies.middleware.logout.globalId = "logout";
+        sails.hooks.policies.middleware.logout.sails = sails;
 
         cb();
       });
