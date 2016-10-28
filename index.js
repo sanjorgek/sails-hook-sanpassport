@@ -30,11 +30,6 @@ module.exports = function indexes(sails) {
         sails.hooks.policies.middleware.sessionauth.globalId = "sessionAuth";
         sails.hooks.policies.middleware.sessionauth.sails = sails;
 
-        sails.hooks.policies.middleware.sessionauth = sails.sanpassport.ensureAuthenticated;
-        sails.hooks.policies.middleware.sessionauth.identity = "sessionauth";
-        sails.hooks.policies.middleware.sessionauth.globalId = "sessionAuth";
-        sails.hooks.policies.middleware.sessionauth.sails = sails;
-
         sails.hooks.policies.middleware.login = sails.sanpassport.login;
         sails.hooks.policies.middleware.login.identity = "login";
         sails.hooks.policies.middleware.login.globalId = "login";
