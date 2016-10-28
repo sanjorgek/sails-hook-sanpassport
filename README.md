@@ -76,9 +76,9 @@ module.exports.policies = {
   UserController: {
     '*': ['sessionAuth']
   },
-  UserController: {
+  AuthController: {
     login: ['login'],
-    login: ['logout']
+    logout: ['logout']
   }
 };
 ~~~
