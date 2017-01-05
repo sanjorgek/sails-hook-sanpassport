@@ -10,7 +10,7 @@ module.exports = function indexes(sails) {
       if(!sails.config.passport || !sails.config.passport.model){
         sails.config.passport = {
           model: "user"
-        }
+        };
       }
     },
     //Start hook
@@ -45,7 +45,7 @@ module.exports = function indexes(sails) {
     },
     //Routes
     routes: {}
-  }
+  };
 };
 
 function sessionPAP(stack, sanpassport) {
