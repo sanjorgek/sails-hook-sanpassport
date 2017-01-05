@@ -3,6 +3,12 @@
   [![NPM Version][npm-image]][npm-url]
   [![NPM Downloads][downloads-image]][downloads-url]
   [![Build Status](https://travis-ci.org/sanjorgek/sails-hook-sanpassport.svg?branch=master)](https://travis-ci.org/sanjorgek/sails-hook-sanpassport)
+  [![Code Climate](https://codeclimate.com/github/sanjorgek/sails-hook-sanpassport/badges/gpa.svg)](https://codeclimate.com/github/sanjorgek/sails-hook-sanpassport)
+  [![Issue Count](https://codeclimate.com/github/sanjorgek/sails-hook-sanpassport/badges/issue_count.svg)](https://codeclimate.com/github/sanjorgek/sails-hook-sanpassport)
+  [![bitHound Overall Score](https://www.bithound.io/github/sanjorgek/sails-hook-sanpassport/badges/score.svg)](https://www.bithound.io/github/sanjorgek/sails-hook-sanpassport)
+  [![bitHound Dependencies](https://www.bithound.io/github/sanjorgek/sails-hook-sanpassport/badges/dependencies.svg)](https://www.bithound.io/github/sanjorgek/sails-hook-sanpassport/master/dependencies/npm)
+  [![bitHound Dev Dependencies](https://www.bithound.io/github/sanjorgek/sails-hook-sanpassport/badges/devDependencies.svg)](https://www.bithound.io/github/sanjorgek/sails-hook-sanpassport/master/dependencies/npm)
+  [![bitHound Code](https://www.bithound.io/github/sanjorgek/sails-hook-sanpassport/badges/code.svg)](https://www.bithound.io/github/sanjorgek/sails-hook-sanpassport)
   
 [Passport](https://www.npmjs.com/package/passport) hook for [Sails.org](http://sailsjs.org/)
 
@@ -17,7 +23,8 @@ Install
 	$ npm install sails-hook-sanpassport
 
 Create `config/passport.js`
-~~~js
+
+```js
 module.exports.passport = {
 	model: "user",
 	//optional
@@ -25,10 +32,11 @@ module.exports.passport = {
   //optional
   ensureAuthenticated: null
 }
-~~~
+```
 
 Model settings
-~~~js
+
+```js
 module.exports = {
   attributes: {
     username: {
@@ -46,10 +54,11 @@ module.exports = {
     }
   },
 };
-~~~
+```
 
 AuthController options
-~~~js
+
+```js
 module.exports = {
   login: function(req, res){
     //
@@ -68,10 +77,11 @@ module.exports = {
     });
   }
 }
-~~~
+```
 
 Policies settings
-~~~js
+
+```js
 module.exports.policies = {
   UserController: {
     '*': ['sessionAuth']
@@ -81,10 +91,11 @@ module.exports.policies = {
     logout: ['logout']
   }
 };
-~~~
+```
 
 Routes options
-~~~js
+
+```js
 module.exports.routes = {
   '/': [{policy: "sessionAuth"},{
     view: 'homepage',
@@ -96,7 +107,7 @@ module.exports.routes = {
   'post /logout': "AuthController.logout",
   'post /signup': "AuthController.signup"
 };
-~~~
+```
 
 
 [npm-image]: https://img.shields.io/npm/v/sails-hook-sanpassport.svg
