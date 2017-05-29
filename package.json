@@ -29,10 +29,11 @@
   "devDependencies": {
     "sails": "x",
     "mocha": "x",
-    "supertest": "^2.0.1"
+    "supertest": "^3.0.0"
   },
   "dependencies": {
-    "debug": "^2.2.0",
-    "sanpassport": "3.0.0"
+    "debug": "^2.6.8",
+    "lodash": "^4.17.4",
+    "sanpassport": "4.0.1"
   }
 }
